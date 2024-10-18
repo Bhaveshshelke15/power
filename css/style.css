@@ -144,6 +144,90 @@
 
 
 /*** Header ***/
+/* General styles for the text in the carousel */
+.owl-carousel-inner h1 {
+    font-size: 3rem; /* Default for desktop */
+}
+
+.owl-carousel-inner h1 {
+    text-align: 30px; /* Default for desktop */
+}
+
+.owl-carousel-inner p {
+    font-size: 1.2rem; /* Default for desktop */
+}
+
+.owl-carousel-inner p {
+    text-align: 40px; /* Default for desktop */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .header-carousel .owl-carousel-item {
+        position: relative;
+        min-height: 500px;
+    }
+
+
+    .owl-carousel-item img {
+        width: 100%; /* Ensures the image spans the full width of the container */
+        height: 600px; /* Sets a fixed height for all images */
+        object-fit: cover; /* Ensures the image fills the container without stretching */
+    }
+
+    .owl-carousel-inner h1 {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+    }
+
+    .owl-carousel-inner p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+
+    .header-carousel .owl-carousel-item p {
+        font-size: 20px !important;
+    }
+}
+
+.owl-carousel-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-start; /* Moves content to the top */
+    justify-content: center;
+    padding-top: 50px; /* Reduce padding to move text closer to the top */
+    background: rgba(0, 0, 0, .1);
+}
+
+.owl-carousel-inner .container {
+    margin-top: -50px; /* Adjust this value to move the text upwards */
+}
+
+@media (max-width: 768px) {
+    .owl-carousel-inner {
+        padding-top: 5px; /* Reduce padding on smaller screens */
+    }
+
+    .owl-carousel-inner .container {
+        margin-top: 0px; /* Adjust negative margin for smaller screens */
+    }
+
+    .header-carousel h1 {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+
+    .header-carousel p {
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+}
+
+
+
+
+/* Other existing styles */
+
 .owl-carousel-inner {
     position: absolute;
     width: 100%;
@@ -153,24 +237,6 @@
     display: flex;
     align-items: center;
     background: rgba(0, 0, 0, .1);
-}
-
-@media (max-width: 768px) {
-    .header-carousel .owl-carousel-item {
-        position: relative;
-        min-height: 500px;
-    }
-
-    .header-carousel .owl-carousel-item img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .header-carousel .owl-carousel-item p {
-        font-size: 16px !important;
-    }
 }
 
 .header-carousel .owl-dots {
@@ -221,6 +287,7 @@
 }
 
 
+
 /*** About ***/
 @media (min-width: 992px) {
     .container.about {
@@ -243,6 +310,82 @@
         padding-right: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
+
+.page-header {
+    background-image: url('/img/h1.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Makes the background image fixed */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    position: relative; /* Allows for overlay */
+    color: #fff; /* Ensures the text is visible */
+    text-align: center; /* Centers the text */
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(112, 187, 113, 0.5); /* Dark overlay for better text visibility */
+    z-index: 1;
+}
+
+.page-header h1 {
+    position: relative;
+    z-index: 2; /* Ensures the text is above the overlay */
+}
+
+
+
+/*** Service ***/
+.service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+}.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-slide {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1.5s ease;
+    animation: slide-animation 6s infinite; /* 6s for 4 images, each showing for 1.5s */
+}
+
+.image-slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.image-slide:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.image-slide:nth-child(3) {
+    animation-delay: 3s;
+}
+
+.image-slide:nth-child(4) {
+    animation-delay: 4.5s;
+}
+
+@keyframes slide-animation {
+    0% {
+        opacity: 0;
+    }
+    16.67% {
+        opacity: 1;
+    }
+    33.33% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 
 
 /*** Service ***/
@@ -669,3 +812,196 @@
 }
 
 
+
+/*float quote */
+
+/* Floating Button Style */
+.floating-btn {
+    position: fixed;
+    bottom: 80px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background-color: #00a1c6; /* Button color */
+    color: white; /* Text color */
+    padding: 15px 20px; /* Button padding */
+    border-radius: 50%; /* Circular shape */
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for effect */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays on top */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.floating-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+@media (max-width: 768px) {
+    .floating-btn {
+        padding: 12px 15px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+}
+
+/* quote calculator */
+
+ /* Basic Styles */
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Get a Quote button style */
+#quoteBtn {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background with transparency */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    max-height: 90vh; /* Maximum height to fit the screen */
+    overflow-y: auto; /* Enable scroll within the modal if content exceeds height */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+}
+
+.container2 {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+h2, h3, label, .result, .cost {
+    color: #2c3e50;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #27ae60;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+/* Professional Button and Layout Styles */
+.selection-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.option-btn {
+    padding: 15px 30px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.option-btn:hover {
+    background-color: #3498db;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #27ae60;
+}
+
+.calculate-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.calculate-btn:hover {
+    background-color: #2ecc71;
+}
+   /* image container */
+
+   /* Ensures images fill their containers */
+.owl-carousel-item img {
+    width: 100%;
+    height: 100%; /* Fills the container height */
+    object-fit: cover; /* Crops the image to fit without stretching */
+}
+
+/* Carousel inner adjustments to ensure alignment */
+.owl-carousel-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Makes sure the container covers the full height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container to ensure image height consistency */
+.owl-carousel-item {
+    height: 600px; /* Set a fixed height for consistency; adjust as needed */
+}
+
+@media (max-width: 768px) {
+    .owl-carousel-item {
+        height: 400px; /* Adjust height for smaller screens */
+    }
+}
