@@ -197,11 +197,11 @@
     display: flex;
     align-items: flex-start; /* Moves content to the top */
     justify-content: center;
-    padding-top: 50px; /* Reduce padding to move text closer to the top */
+    padding-top: 10px; /* Reduce padding to move text closer to the top */
     background: rgba(0, 0, 0, .1);
 }
 
-.owl-carousel-inner .container {
+.owl-carousel-inner .container1 {
     margin-top: -50px; /* Adjust this value to move the text upwards */
 }
 
@@ -210,7 +210,7 @@
         padding-top: 5px; /* Reduce padding on smaller screens */
     }
 
-    .owl-carousel-inner .container {
+    .owl-carousel-inner .container1 {
         margin-top: 0px; /* Adjust negative margin for smaller screens */
     }
 
@@ -241,30 +241,30 @@
 
 .header-carousel .owl-dots {
     position: absolute;
-    width: 60px;
+    width: 10px;
     height: 100%;
     top: 0;
     right: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: right;
+    justify-content: right;
 }
 
 .header-carousel .owl-dots .owl-dot {
     position: relative;
-    width: 45px;
-    height: 45px;
-    margin: 5px 0;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
     background: #FFFFFF;
     box-shadow: 0 0 30px rgba(255, 255, 255, .9);
-    border-radius: 45px;
+    border-radius: 30px;
     transition: .5s;
 }
 
 .header-carousel .owl-dots .owl-dot.active {
-    width: 60px;
-    height: 60px;
+    width: 20px;
+    height: 20px;
 }
 
 .header-carousel .owl-dots .owl-dot img {
@@ -273,7 +273,7 @@
     height: 100%;
     object-fit: cover;
     padding: 2px;
-    border-radius: 45px;
+    border-radius: 30px;
     transition: .5s;
 }
 
@@ -514,7 +514,7 @@
     }
 
     .quote-text  {
-        padding-right: calc(((100% - 960px) / 2) + .75rem);
+        padding-inline: calc(((100% - 960px) / 2) + .75rem);
     }
 }
 
@@ -813,6 +813,7 @@
 
 
 
+
 /*float quote */
 
 /* Floating Button Style */
@@ -820,7 +821,7 @@
     position: fixed;
     bottom: 80px; /* Distance from the bottom */
     right: 20px; /* Distance from the right */
-    background-color: #00a1c6; /* Button color */
+    background-color: #205db9; /* Button color */
     color: white; /* Text color */
     padding: 15px 20px; /* Button padding */
     border-radius: 50%; /* Circular shape */
@@ -833,7 +834,7 @@
 }
 
 .floating-btn:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #21c3bd; /* Darker shade on hover */
     transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
@@ -844,10 +845,8 @@
     }
 }
 
-/* quote calculator */
-
- /* Basic Styles */
- body {
+/* Basic Styles */
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
@@ -855,7 +854,7 @@
 /* Get a Quote button style */
 #quoteBtn {
     padding: 10px 20px;
-    background-color: #27ae60;
+    background-color: #006fc4;
     color: white;
     border: none;
     border-radius: 5px;
@@ -866,25 +865,26 @@
 /* Modal styles */
 .modal {
     display: none;
-    position: absolute;
+    position: absolute; /* Change to fixed for better control on mobile */
     z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Background with transparency */
+    overflow: auto; /* Ensure scrolling if modal exceeds screen height */
 }
 
 .modal-content {
     background-color: white;
-    margin: 10% auto;
+    margin: 5% auto; /* Adjusted for smaller screen alignment */
     padding: 20px;
     border-radius: 10px;
-    max-width: 700px;
+    max-width: 600px; /* Slightly narrower for more compact design */
     width: 90%;
     position: relative;
-    max-height: 90vh; /* Maximum height to fit the screen */
-    overflow-y: auto; /* Enable scroll within the modal if content exceeds height */
+    max-height: 80vh; /* Limit to fit screen size */
+    overflow-y: auto; /* Scroll within the modal if content exceeds height */
 }
 
 .close {
@@ -897,7 +897,7 @@
 }
 
 .container2 {
-    padding: 20px;
+    padding: 15px; /* Reduce padding to make it more compact */
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
     text-align: center;
@@ -913,9 +913,9 @@ h2, h3, label, .result, .cost {
 
 input, select, button {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+    padding: 2px; /* Reduce padding for smaller look */
+    margin: 2px ; /* Adjust margin for tighter layout */
+    border-radius: 2px;
 }
 
 button {
@@ -931,19 +931,20 @@ button:hover {
 /* Professional Button and Layout Styles */
 .selection-options {
     display: flex;
+    flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 10px; /* Reduce gap for compact layout */
+    margin-bottom: 15px;
 }
 
 .option-btn {
-    padding: 15px 30px;
+    padding: 12px 20px; /* Smaller button padding */
     background-color: #2c3e50;
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px; /* Slightly smaller font */
     transition: background-color 0.3s ease;
 }
 
@@ -953,55 +954,153 @@ button:hover {
 
 .modal-title {
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 22px; /* Slightly smaller for compact design */
+    margin-bottom: 15px;
     color: #27ae60;
 }
 
 .calculate-btn {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 10px; /* Reduced padding */
     background-color: #27ae60;
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px; /* Adjusted font size */
     margin-top: 15px;
 }
 
 .calculate-btn:hover {
     background-color: #2ecc71;
 }
-   /* image container */
 
-   /* Ensures images fill their containers */
+/* Adjustments for Carousel */
 .owl-carousel-item img {
     width: 100%;
-    height: 100%; /* Fills the container height */
-    object-fit: cover; /* Crops the image to fit without stretching */
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Carousel inner adjustments to ensure alignment */
 .owl-carousel-inner {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Makes sure the container covers the full height */
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Container to ensure image height consistency */
 .owl-carousel-item {
-    height: 600px; /* Set a fixed height for consistency; adjust as needed */
+    height: 500px; /* Reduce default height for better responsiveness */
 }
 
 @media (max-width: 768px) {
+    .modal-content {
+        margin: 5% 5%; /* Adjust margins for smaller screens */
+        max-width: 95%; /* Take most of the screen on mobile */
+    }
+    
+    .container2 {
+        padding: 10px; /* Further reduce padding on mobile */
+    }
+
+    .calculate-btn {
+        font-size: 14px; /* Smaller font for mobile */
+        padding: 8px; /* Compact button */
+    }
+
+    .option-btn {
+        padding: 10px 15px; /* Adjust for smaller screens */
+    }
+
     .owl-carousel-item {
-        height: 400px; /* Adjust height for smaller screens */
+        height: 300px; /* Smaller height for mobile */
+    }
+}
+
+
+/* Ensure consistent aspect ratio and better layout */
+.photo-thumbnail {
+    width: 100%; /* Full width within the column */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image is neatly cropped if necessary */
+    max-height: 150px; /* Set a max height for better consistency */
+}
+
+/* Add some padding around the thumbnails */
+.row-cols-1 .col {
+    padding: 5px; /* Adjust space between images */
+}
+
+@media (max-width: 768px) {
+    .quote-text {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .photo-thumbnail {
+        max-height: 120px; /* Reduce image height for mobile */
+    }
+
+    .row-cols-sm-2 .col {
+        margin-bottom: 10px; /* Add space below images on mobile */
+    }
+}
+
+
+/* General Carousel Image Styling */
+.responsive-img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images cover the area properly without stretching */
+}
+
+/* Inner content positioning */
+.owl-carousel-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Add padding for better spacing */
+    text-align: center;
+}
+
+/* Container Styling for Consistency */
+.container1 {
+    max-width: 100%; /* Limit the width of the text container for better readability */
+    margin: 0 auto;
+}
+
+/* Adjustments for Mobile Devices */
+@media (max-width: 768px) {
+    .responsive-img {
+        height: 400px; /* Set a fixed height for smaller screens */
+        object-fit: cover; /* Ensure it fills the width properly */
+    }
+
+    .owl-carousel-inner {
+        padding: 10px; /* Reduce padding on smaller screens */
+        text-align: center; /* Ensure text is centered */
+    }
+
+    .display-2 {
+        font-size: 1.8rem; /* Reduce font size for smaller screens */
+        line-height: 1.3; /* Adjust line height for better readability */
+    }
+
+    .fs-3, .fs-5 {
+        font-size: 1rem; /* Smaller font size for paragraphs on mobile */
+    }
+
+    .btn {
+        font-size: 0.9rem; /* Adjust button font size */
+        padding: 8px 15px; /* Reduce padding for buttons */
     }
 }
