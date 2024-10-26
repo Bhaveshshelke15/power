@@ -145,21 +145,13 @@
 
 /*** Header ***/
 /* General styles for the text in the carousel */
-.owl-carousel-inner h1 {
-    font-size: 3rem; /* Default for desktop */
-}
 
-.owl-carousel-inner h1 {
-    text-align: 30px; /* Default for desktop */
-}
 
-.owl-carousel-inner p {
-    font-size: 1.2rem; /* Default for desktop */
-}
 
-.owl-carousel-inner p {
-    text-align: 40px; /* Default for desktop */
-}
+
+
+
+
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
