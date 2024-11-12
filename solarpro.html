@@ -126,143 +126,189 @@
     
     <!-- Page Header End -->
 
-    <!--Quote calculator start-->
- <title>Solar Power Calculator with EV and AC Options</title>
+<!-- Quote calculator start -->
+<title>Solar Power Calculator with EV and AC Options</title>
 
- <!-- Modal Structure for Solar Power Calculator -->
- <div id="quoteModal" class="modal">
-     <div class="modal-content">
-         <span class="close" onclick="closeCalculatorModal()">&times;</span>
-         <div class="container2">
-             <h2 class="modal-title">Solar Power Calculator</h2>
+<!-- Modal Structure for Solar Power Calculator -->
+<div id="quoteModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCalculatorModal()">&times;</span>
+        <div class="container2">
+            <h2 class="modal-title">Solar Power Calculator</h2>
 
-             <!-- Selection Boxes for Residential, Commercial, Industrial -->
-             <div class="selection-options">
-                 <button class="option-btn" onclick="selectOption('residential')">Residential</button>
-                 <button class="option-btn" onclick="selectOption('commercial')">Commercial</button>
-                 <button class="option-btn" onclick="selectOption('industrial')">Industrial</button>
-             </div>
+            <!-- Selection Boxes for Residential, Commercial, Industrial -->
+            <div class="selection-options">
+                <button class="option-btn" onclick="selectOption('residential')">Residential</button>
+                <button class="option-btn" onclick="selectOption('commercial')">Commercial</button>
+                <button class="option-btn" onclick="selectOption('industrial')">Industrial</button>
+            </div>
 
-             <!-- Residential Calculator Form (Hidden by default) -->
-             <div id="residentialForm" class="hidden">
-                 <h3>Residential Solar Calculator</h3>
-                 <label for="monthlyBill">Enter Monthly Electricity Bill (Rs): </label>
-                 <input type="number" id="monthlyBill" placeholder="e.g., 3000"><br>
+            <!-- Residential Calculator Form (Hidden by default) -->
+            <div id="residentialForm" class="hidden">
+                <h3>Residential Solar Calculator</h3>
+                <label for="monthlyBill">Enter Monthly Electricity Bill (Rs): </label>
+                <input type="number" id="monthlyBill" placeholder="e.g., 3000"><br>
 
-                 <!-- Option for planning to add EV -->
-                 <label for="planningEv">Are you planning to add an Electric Vehicle (EV)? </label>
-                 <select id="planningEv" onchange="toggleEvSection()">
-                     <option value="no">No</option>
-                     <option value="yes">Yes</option>
-                 </select><br>
+                <!-- Option for planning to add EV -->
+                <label for="planningEv">Are you planning to add an Electric Vehicle (EV)? </label>
+                <select id="planningEv" onchange="toggleEvSection()">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select><br>
 
-                 <!-- EV Section (hidden by default) -->
-                 <div id="evSection" class="hidden">
-                     <label for="evType">Choose Electric Vehicle: </label>
-                     <select id="evType">
-                         <option value="0">No EV</option>
-                         <option value="1">Two-wheeler</option>
-                         <option value="3">Four-wheeler</option>
-                     </select><br>
-                 </div>
+                <!-- EV Section (hidden by default) -->
+                <div id="evSection" class="hidden">
+                    <label for="evType">Choose Electric Vehicle: </label>
+                    <select id="evType">
+                        <option value="0">No EV</option>
+                        <option value="1">Two-wheeler</option>
+                        <option value="3">Four-wheeler</option>
+                    </select><br>
+                </div>
 
-                 <!-- Option for planning to add AC -->
-                 <label for="planningAc">Are you planning to add Air Conditioners (AC)? </label>
-                 <select id="planningAc" onchange="toggleAcSection()">
-                     <option value="no">No</option>
-                     <option value="yes">Yes</option>
-                 </select><br>
+                <!-- Option for planning to add AC -->
+                <label for="planningAc">Are you planning to add Air Conditioners (AC)? </label>
+                <select id="planningAc" onchange="toggleAcSection()">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select><br>
 
-                 <!-- AC Section (hidden by default) -->
-                 <div id="acSection" class="hidden">
-                     <label for="acCount">Number of Air Conditioners: </label>
-                     <input type="number" id="acCount" placeholder="e.g., 0" min="0"><br>
-                 </div>
+                <!-- AC Section (hidden by default) -->
+                <div id="acSection" class="hidden">
+                    <label for="acCount">Number of Air Conditioners: </label>
+                    <input type="number" id="acCount" placeholder="e.g., 0" min="0"><br>
+                </div>
 
-                 <button class="calculate-btn" onclick="calculateSolar()">Calculate Required Solar System</button>
-             </div>
+                <button class="calculate-btn" onclick="calculateSolar('residential')">Calculate Required Solar System</button>
+            </div>
 
-             <!-- Placeholder Forms for Commercial and Industrial (Hidden by default) -->
-             <div id="commercialForm" class="hidden">
-                 <h3>Commercial calculator will be added soon.</h3>
-             </div>
-             <div id="industrialForm" class="hidden">
-                 <h3>Industrial calculator will be added soon.</h3>
-             </div>
+            <!-- Commercial Calculator Form -->
+            <div id="commercialForm" class="hidden">
+                <h3>Commercial Solar Calculator</h3>
+                <label for="commercialMonthlyBill">Enter Monthly Electricity Bill (Rs): </label>
+                <input type="number" id="commercialMonthlyBill" placeholder="e.g., 10000"><br>
 
-             <p class="result" id="result"></p>
-             <p class="cost" id="cost"></p>
-             <iframe src="https://forms.gle/Q8mpuXrcLQrvsBmLA" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">
-                 Loading…
-             </iframe>
-         </div>
-     </div>
- </div>
+                <label for="commercialRoofType">Select Roof Type: </label>
+                <select id="commercialRoofType">
+                    <option value="tin">Tin</option>
+                    <option value="rcc">RCC</option>
+                </select><br>
 
- <!-- JavaScript to Handle Modal and Calculator -->
- <script>
-     function openCalculatorModal() {
-         document.getElementById("quoteModal").style.display = "block";
-     }
+                <button class="calculate-btn" onclick="calculateSolar('commercial')">Calculate Required Solar System</button>
+            </div>
 
-     function closeCalculatorModal() {
-         document.getElementById("quoteModal").style.display = "none";
-     }
+            <!-- Industrial Calculator Form -->
+            <div id="industrialForm" class="hidden">
+                <h3>Industrial Solar Calculator</h3>
+                <label for="industrialMonthlyBill">Enter Monthly Electricity Bill (Rs): </label>
+                <input type="number" id="industrialMonthlyBill" placeholder="e.g., 10000"><br>
 
-     function selectOption(option) {
-         document.getElementById("residentialForm").classList.add("hidden");
-         document.getElementById("commercialForm").classList.add("hidden");
-         document.getElementById("industrialForm").classList.add("hidden");
+                <label for="industrialRoofType">Select Roof Type: </label>
+                <select id="industrialRoofType">
+                    <option value="tin">Tin</option>
+                    <option value="rcc">RCC</option>
+                </select><br>
 
-         if (option === 'residential') {
-             document.getElementById("residentialForm").classList.remove("hidden");
-         } else if (option === 'commercial') {
-             document.getElementById("commercialForm").classList.remove("hidden");
-         } else if (option === 'industrial') {
-             document.getElementById("industrialForm").classList.remove("hidden");
-         }
-     }
+                <button class="calculate-btn" onclick="calculateSolar('industrial')">Calculate Required Solar System</button>
+            </div>
 
-     function toggleEvSection() {
-         var evSection = document.getElementById("evSection");
-         var planningEv = document.getElementById("planningEv").value;
+            <p class="result" id="result"></p>
+            <p class="cost" id="cost"></p>
+            <iframe src="https://forms.gle/Q8mpuXrcLQrvsBmLA" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">
+                Loading…
+            </iframe>
+        </div>
+    </div>
+</div>
 
-         if (planningEv === "yes") {
-             evSection.classList.remove("hidden");
-         } else {
-             evSection.classList.add("hidden");
-             document.getElementById("evType").value = "0";
-         }
-     }
+<!-- JavaScript to Handle Modal and Calculator -->
+<script>
+    function openCalculatorModal() {
+        document.getElementById("quoteModal").style.display = "block";
+    }
 
-     function toggleAcSection() {
-         var acSection = document.getElementById("acSection");
-         var planningAc = document.getElementById("planningAc").value;
+    function closeCalculatorModal() {
+        document.getElementById("quoteModal").style.display = "none";
+    }
 
-         if (planningAc === "yes") {
-             acSection.classList.remove("hidden");
-         } else {
-             acSection.classList.add("hidden");
-             document.getElementById("acCount").value = "0";
-         }
-     }
+    function selectOption(option) {
+        document.getElementById("residentialForm").classList.add("hidden");
+        document.getElementById("commercialForm").classList.add("hidden");
+        document.getElementById("industrialForm").classList.add("hidden");
 
-     function calculateSolar() {
-         const monthlyBill = parseFloat(document.getElementById('monthlyBill').value);
-         const evType = parseFloat(document.getElementById('evType').value);
-         const acCount = parseFloat(document.getElementById('acCount').value);
+        if (option === 'residential') {
+            document.getElementById("residentialForm").classList.remove("hidden");
+        } else if (option === 'commercial') {
+            document.getElementById("commercialForm").classList.remove("hidden");
+        } else if (option === 'industrial') {
+            document.getElementById("industrialForm").classList.remove("hidden");
+        }
+    }
 
-         const averageUnitPerMonth = monthlyBill / 10;
-         const baseSolar = (averageUnitPerMonth / 30) / 3.7;
-         const additionalLoad = evType + (acCount * 0.5);
-         const requiredSystem = (baseSolar + additionalLoad).toFixed(2);
-         const estimatedCost = (requiredSystem * 65000).toFixed(2);
+    function toggleEvSection() {
+        const evSection = document.getElementById("evSection");
+        const planningEv = document.getElementById("planningEv").value;
 
-         document.getElementById('result').textContent = `Required Solar System Size: ${requiredSystem} kW`;
-         document.getElementById('cost').textContent = `Estimated Cost: Rs ${estimatedCost}`;
-     }
- </script>
- <!--calculator end-->
+        evSection.classList.toggle("hidden", planningEv === "no");
+        if (planningEv === "no") {
+            document.getElementById("evType").value = "0";
+        }
+    }
+
+    function toggleAcSection() {
+        const acSection = document.getElementById("acSection");
+        const planningAc = document.getElementById("planningAc").value;
+
+        acSection.classList.toggle("hidden", planningAc === "no");
+        if (planningAc === "no") {
+            document.getElementById("acCount").value = "0";
+        }
+    }
+
+    function calculateResidentialSolar() {
+        const monthlyBill = parseFloat(document.getElementById('monthlyBill').value) || 0;
+        const evType = parseFloat(document.getElementById('evType').value) || 0;
+        const acCount = parseFloat(document.getElementById('acCount').value) || 0;
+
+        const averageUnitPerMonth = monthlyBill / 10;
+        const baseSolar = (averageUnitPerMonth / 30) / 3.7;
+        const additionalLoad = evType + (acCount * 0.5);
+        const requiredSystem = (baseSolar + additionalLoad).toFixed(2);
+        const estimatedCost = (requiredSystem * 65000).toFixed(2);
+
+        document.getElementById('result').textContent = `Required Solar System Size: ${requiredSystem} kW`;
+        document.getElementById('cost').textContent = `Estimated Cost: Rs ${estimatedCost}`;
+    }
+
+    function calculateNonResidentialSolar(type) {
+        const monthlyBill = parseFloat(document.getElementById(type + 'MonthlyBill').value);
+        const roofType = document.getElementById(type + 'RoofType').value;
+
+        if (isNaN(monthlyBill) || monthlyBill <= 0) {
+            alert("Please enter a valid monthly bill.");
+            return;
+        }
+
+        const monthlyAverageUsage = monthlyBill / 10;
+        const dailyUsage = monthlyAverageUsage / 30;
+        const requiredSystem = (dailyUsage / 3.6).toFixed(2);
+
+        const costPerWatt = roofType === 'tin' ? 32.5 : 42.5;
+        const estimatedCost = (requiredSystem * 1000 * costPerWatt).toFixed(2);
+
+        document.getElementById('result').textContent = `Required Solar System Size: ${requiredSystem} kW`;
+        document.getElementById('cost').textContent = `Estimated Cost: Rs ${estimatedCost}`;
+    }
+
+    function calculateSolar(type) {
+        if (type === 'residential') {
+            calculateResidentialSolar();
+        } else if (type === 'commercial' || type === 'industrial') {
+            calculateNonResidentialSolar(type);
+        }
+    }
+</script>
+<!-- calculator end -->
 
     
 
