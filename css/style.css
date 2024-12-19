@@ -467,7 +467,7 @@
     }
 
     .quote-text  {
-        padding-inline: calc(((100% - 960px) / 2) + .75rem);
+        padding-right: calc(((100% - 960px) / 2) + .75rem);
     }
 }
 
@@ -482,7 +482,6 @@
         padding-right: calc(((100% - 1320px) / 2) + .75rem);
     }
 }
-
 
 /*** Team ***/
 .team-item {
@@ -1057,3 +1056,6 @@ button:hover {
         padding: 8px 15px; /* Reduce padding for buttons */
     }
 }
+
+
+
